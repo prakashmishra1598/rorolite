@@ -46,9 +46,9 @@ def deploy():
 
 @task
 def provision():
-    sudo("dnf update")
+    #sudo("dnf update")
     sudo("dnf install -y " + " ".join(config.system_packages))
-    install_anaconda(config.anaconda_version)
+    #install_anaconda(config.anaconda_version)
     setup_volumes()
 
 @task
