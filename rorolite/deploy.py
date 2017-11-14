@@ -84,7 +84,7 @@ class Deployment:
     def restart_services(self):
         services = self.config.get('services')
         # TODO: validate services
-        sudo("rm -rf /etc/supervisor/conf.d && ln -sfT /opt/rorolite/project/.rorolite/supervisor /etc/supervisord.conf/")
+        sudo("rm -rf /etc/supervisor/conf.d && ln -sfT /opt/rorolite/project/.rorolite/supervisor /etc/supervisor.d/")
         sudo("supervisorctl update")
         for s in services:
             sudo("supervisorctl restart {}".format(s['name']))
